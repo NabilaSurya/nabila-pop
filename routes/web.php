@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\HomeController;
+
 use App\Http\Controllers\MahasiswaController;
 
 Route::get('/', function () {
@@ -26,3 +28,4 @@ Route::get('/about', function () {
 Route::get('/pengguna', function () {
     return "Nama ak nabila";
 });
+Route::get('/home', [HomeController::class, 'index']);
