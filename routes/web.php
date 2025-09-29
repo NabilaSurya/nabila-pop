@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\PegawaiController;
 
+use App\Http\Controllers\QuestionController;
+
 use App\Http\Controllers\MahasiswaController;
 
 Route::get('/', function () {
@@ -32,3 +34,6 @@ Route::get('/pengguna', function () {
 });
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/diriku', [PegawaiController::class, 'index']);
+
+Route::post('question/store', [QuestionController::class, 'store'])
+		->name('question.store');
