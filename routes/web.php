@@ -8,6 +8,8 @@ use App\Http\Controllers\PegawaiController;
 
 use App\Http\Controllers\QuestionController;
 
+use App\Http\Controllers\DashboardController;
+
 use App\Http\Controllers\MahasiswaController;
 
 Route::get('/', function () {
@@ -37,3 +39,6 @@ Route::get('/diriku', [PegawaiController::class, 'index']);
 
 Route::post('question/store', [QuestionController::class, 'store'])
 		->name('question.store');
+
+Route::get('dashboard', [DashboardController::class, 'index'])
+        ->name('dashboard');
