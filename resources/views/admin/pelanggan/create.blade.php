@@ -519,6 +519,11 @@
             <div class="col-12 mb-4">
                 <div class="card border-0 shadow components-section">
                     <div class="card-body">
+                        @if (session('success'))
+                            <div class="aler alert-info">
+                                {!! session('success') !!}
+                            </div>
+                        @endif
                         <form method="POST" action="{{ route('pelanggan.store') }}">
                             @csrf
 
@@ -549,8 +554,8 @@
                                     <div class="mb-3">
                                         <label for="birthday">Birthday</label>
                                         <div class="input-group">
-                                            <input data-datepicker="" class="form-control" id="birthday"
-                                                name="birthday" type="text" placeholder="mm/dd/yyyy"
+                                            <input class="form-control" id="birthday"
+                                                name="birthday" type="date"
                                                 value="{{ old('birthday') }}" required>
                                             <span class="input-group-text">
                                                 <svg class="icon icon-xs text-gray-600" fill="currentColor"
