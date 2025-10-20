@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 
+use App\Http\Controllers\UserController;
+
 use App\Http\Controllers\PegawaiController;
 
 use App\Http\Controllers\QuestionController;
@@ -40,9 +42,11 @@ Route::get('/home', [HomeController::class, 'index']);
 Route::get('/diriku', [PegawaiController::class, 'index']);
 
 Route::post('question/store', [QuestionController::class, 'store'])
-		->name('question.store');
+    ->name('question.store');
 
 Route::get('dashboard', [DashboardController::class, 'index'])
-        ->name('dashboard');
+    ->name('dashboard');
 
-Route::resource('pelanggan', PelangganController::class);
+Route::resource('pelanggan', PelangganController::class)->names('pelanggan');
+
+Route::resource('user', UserController::class);

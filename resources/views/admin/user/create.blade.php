@@ -498,17 +498,17 @@
                             </svg>
                         </a>
                     </li>
-                    <li class="breadcrumb-item"><a href="#">user</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Tambah User</li>
+                    <li class="breadcrumb-item"><a href="#">User</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Tambah Pelanggan</li>
                 </ol>
             </nav>
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0">
-                    <h1 class="h4">Tambah user</h1>
+                    <h1 class="h4">Tambah User</h1>
                     <p class="mb-0">Form untuk menambahkan data user baru.</p>
                 </div>
                 <div>
-                    <a href="{{ route('pelanggan.index') }}" class="btn btn-primary">
+                    <a href="{{ route('user.index') }}" class="btn btn-primary">
                         <i class="far fa-question-circle me-1"></i> Kembali
                     </a>
                 </div>
@@ -524,22 +524,16 @@
                                 {!! session('success') !!}
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('pelanggan.store') }}">
+                        <form method="POST" action="{{ route('user.store') }}">
                             @csrf
 
                             <div class="row mb-4">
                                 <div class="col-lg-6 col-md-6">
 
                                     <div class="mb-3">
-                                        <label for="firstName">First name</label>
-                                        <input type="text" class="form-control" id="firstName" name="first_name"
-                                            value="{{ old('first_name') }}" required>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="lastName">Last name</label>
-                                        <input type="text" class="form-control" id="lastName" name="last_name"
-                                            value="{{ old('last_name') }}" required>
+                                        <label for="name">Nama Lengkap</label>
+                                        <input type="text" class="form-control" id="name" name="name"
+                                            value="{{ old('name') }}" required>
                                     </div>
 
                                     <div class="mb-3">
@@ -547,44 +541,16 @@
                                         <input type="email" class="form-control" id="email" name="email"
                                             value="{{ old('email') }}" required>
                                     </div>
-                                </div>
-
-                                <div class="col-lg-6 col-md-6">
 
                                     <div class="mb-3">
-                                        <label for="birthday">Birthday</label>
-                                        <div class="input-group">
-                                            <input class="form-control" id="birthday"
-                                                name="birthday" type="date"
-                                                value="{{ old('birthday') }}" required>
-                                            <span class="input-group-text">
-                                                <svg class="icon icon-xs text-gray-600" fill="currentColor"
-                                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd"
-                                                        d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                                                        clip-rule="evenodd"></path>
-                                                </svg>
-                                            </span>
-                                        </div>
+                                        <label for="password">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password"
+                                            value="{{ old('password') }}"  required>
                                     </div>
-
                                     <div class="mb-3">
-                                        <label for="gender">Gender</label>
-                                        <select class="form-select" id="gender" name="gender" required>
-                                            <option value="" selected disabled>-- Pilih --</option>
-                                            <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>
-                                                Male</option>
-                                            <option value="Female" {{ old('gender') == 'Female' ? 'selected' : '' }}>
-                                                Female</option>
-                                            <option value="Other" {{ old('gender') == 'Other' ? 'selected' : '' }}>
-                                                Other</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="phone">Phone</label>
-                                        <input type="text" class="form-control" id="phone" name="phone"
-                                            value="{{ old('phone') }}">
+                                        <label for="password_konfirmatin">Password Konfirmation</label>
+                                        <input type="password_konfirmatin" class="form-control" id="password" name="password_konfirmatin"
+                                            value="{{ old('password_konfirmatin') }}"  required>
                                     </div>
                                 </div>
                             </div>
@@ -592,7 +558,7 @@
                             <div class="row">
                                 <div class="col-12 text-end">
                                     <button type="submit" class="btn btn-sm btn-primary me-2">Simpan</button>
-                                    <a href="pelanggan.index" class="btn btn-sm btn-secondary">Batal</a>
+                                    <a href="{{ route('user.index') }}" class="btn btn-sm btn-secondary">Batal</a>
                                 </div>
                             </div>
                         </form>

@@ -16,19 +16,19 @@
                         </svg>
                     </a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Pelanggan</li>
+                <li class="breadcrumb-item active" aria-current="page">User</li>
             </ol>
         </nav>
 
         {{-- Page Title and Action Button --}}
         <div class="d-flex justify-content-between w-100 flex-wrap">
             <div class="mb-3 mb-lg-0">
-                <h1 class="h4">Data Pelanggan</h1>
-                <p class="mb-0">List data seluruh pelanggan.</p>
+                <h1 class="h4">Data User</h1>
+                <p class="mb-0">List data seluruh user.</p>
             </div>
             <div>
-                <a href="{{ route('pelanggan.create') }}" class="btn btn-primary">
-                    <i class="fas fa-plus me-1"></i> Tambah Pelanggan
+                <a href="{{ route('user.create') }}" class="btn btn-primary">
+                    <i class="fas fa-plus me-1"></i> Tambah User
                 </a>
             </div>
         </div>
