@@ -60,14 +60,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($dataUser as $item)
+                            @foreach ($dataPelanggan as $item)
                                 <tr>
-                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->first_name }} {{ $item->last_name }}</td>
                                     <td>{{ $item->email }}</td>
-                                    <td>{{ $item->password }}</td>
+                                    <td>{{ $item->phone }}</td>
                                     <td>Tombol Edit & Tombol Hapus</td>
                                 </tr>
                             @endforeach
+
                         </tbody>
                     </table>
                 </div>
