@@ -11,9 +11,35 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request) // 👈 1. Terima objek Request
     {
-        $data['dataUser'] = User::paginate(10);
+        // Memulai query builder untuk Model User
+        $query = User::query();
+
+        // 2. IMPLEMENTASI FILTER (ROLE)
+        // Asumsi: Kolom 'role' ada di tabel users
+        if ($request->filled('role')) {
+            $query->where('role', $request->role);
+        }
+
+        // 3. IMPLEMENTASI PENCARIAN (SEARCH)
+        if ($request->filled('search')) {
+            $searchTerm = '%' . $request->search . '%';
+
+            // Mencari di kolom 'name' atau 'email'
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('name', 'like', $searchTerm)
+                    ->orWhere('email', 'like', $searchTerm);
+                // Jika ada kolom 'telepon'
+                // ->orWhere('telepon', 'like', $searchTerm);
+            });
+        }
+
+        // 4. PAGINATION
+        $dataUser = $query->paginate(10)->withQueryString(); // Gunakan withQueryString() untuk mempertahankan filter/search
+
+        $data['dataUser'] = $dataUser;
+
         return view('admin.user.index', $data);
     }
 
@@ -30,10 +56,23 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $data['name']     = $request->name;
-        $data['email']    = $request->email;
+        // 5. VALIDASI (Sangat direkomendasikan)
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed', // Gunakan 'confirmed' jika ada input password_confirmation
+            // Tambahkan validasi untuk 'role' dan 'telepon' jika ada di form:
+            // 'role' => 'nullable|in:admin,staff,user',
+            // 'telepon' => 'nullable|string|max:20',
+        ]);
+
+        // Mengambil semua input kecuali token dan konfirmasi password
+        $data = $request->except('_token', 'password_confirmation', 'password_konfirmation');
+
         $data['password'] = Hash::make($request->password);
-        $data['password_konfirmation'] = $request->password_konfirmation;
+
+        // Asumsi Anda menggunakan kolom 'role' dan 'telepon' di form dan tabel Anda
+        // Jika tidak ada di form, hapus baris ini
 
         User::create($data);
 
