@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
-class pelanggan extends Model
+class Pelanggan extends Model
 {
     protected $table      = 'pelanggan';
     protected $primaryKey = 'pelanggan_id';
@@ -17,6 +17,8 @@ class pelanggan extends Model
         'email',
         'phone'
     ];
+
+    // Scope untuk filter
     public function scopeFilter(Builder $query, $request, array $filterableColumns): Builder
     {
         foreach ($filterableColumns as $column) {
