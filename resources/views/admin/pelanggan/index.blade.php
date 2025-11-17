@@ -1,7 +1,6 @@
 @extends('layouts.admin.app')
 
 @section('content')
-    <!-- Start Main Content Header -->
     <div class="py-4">
         {{-- Breadcrumb --}}
         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
@@ -75,10 +74,73 @@
             </div>
         </div>
 
-        {{-- Pagination --}}
+        {{-- Pagination Top --}}
         <div class="mt-3">
             {{ $dataPelanggan->links('pagination::bootstrap-5') }}
         </div>
     </div>
-    <!-- End Main Content Header -->
+    ---
+
+    {{-- ⭐ DATA TABLE SECTION ⭐ --}}
+    <div class="card card-body border-0 shadow table-wrapper table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="border-gray-200">#</th>
+                    <th class="border-gray-200">Nama Lengkap</th>
+                    <th class="border-gray-200">Email</th>
+                    <th class="border-gray-200">Nomor HP</th>
+                    <th class="border-gray-200">Tanggal Lahir</th>
+                    <th class="border-gray-200">Gender</th>
+                    <th class="border-gray-200">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($dataPelanggan as $index => $pelanggan)
+                    <tr>
+                        <td>{{ $dataPelanggan->firstItem() + $index }}</td>
+                        <td>{{ $pelanggan->first_name }} {{ $pelanggan->last_name }}</td>
+                        <td>{{ $pelanggan->email }}</td>
+                        <td>{{ $pelanggan->phone ?? '-' }}</td>
+                        <td>{{ $pelanggan->birthday ? \Carbon\Carbon::parse($pelanggan->birthday)->format('d-m-Y') : '-' }}
+                        </td>
+                        <td>{{ $pelanggan->gender ?? '-' }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="{{ route('pelanggan.edit', $pelanggan->pelanggan_id) }}"
+                                    class="btn btn-sm btn-info text-white me-2">
+                                    <i class="fas fa-edit me-1"></i> Edit
+                                </a>
+
+                                <form action="{{ route('pelanggan.destroy', $pelanggan->pelanggan_id) }}" method="POST"
+                                    class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger text-white delete-btn"
+                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data pelanggan ini?')">
+                                        <i class="fas fa-trash-alt me-1"></i> Hapus
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="7" class="text-center">Data pelanggan tidak ditemukan.</td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+
+        {{-- Pagination Bottom --}}
+        <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
+            <div class="d-flex align-items-center mb-3 mb-lg-0">
+                <span class="fw-normal small">
+                    Menampilkan **{{ $dataPelanggan->firstItem() }}** sampai **{{ $dataPelanggan->lastItem() }}** dari
+                    total **{{ $dataPelanggan->total() }}** entri.
+                </span>
+            </div>
+            {{ $dataPelanggan->links('pagination::bootstrap-5') }}
+        </div>
+    </div>
 @endsection
