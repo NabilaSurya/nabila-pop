@@ -16,8 +16,6 @@
             </div>
         </div>
     </div>
-    {{-- BAGIAN PAGINASI DI ATAS TABEL --}}
-    {{-- Kita bungkus dengan div untuk mengontrol styling dan penempatan --}}
     <div class="d-flex justify-content-between align-items-center mb-3">
         <div class="fw-normal small">
             Menampilkan {{ $dataUser->firstItem() }} hingga {{ $dataUser->lastItem() }} dari total {{ $dataUser->total() }}
