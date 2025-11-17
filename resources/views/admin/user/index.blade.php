@@ -1,25 +1,8 @@
 @extends('layouts.admin.app')
 
 @section('content')
-    <!-- Start Main Content Header -->
     <div class="py-4">
         {{-- Breadcrumb --}}
-        <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
-            <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
-                <li class="breadcrumb-item">
-                    <a href="{{ route('dashboard') }}">
-                        <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                            </path>
-                        </svg>
-                    </a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">User</li>
-            </ol>
-        </nav>
-
         {{-- Page Title and Action Button --}}
         <div class="d-flex justify-content-between w-100 flex-wrap">
             <div class="mb-3 mb-lg-0">
@@ -33,5 +16,78 @@
             </div>
         </div>
     </div>
-    <!-- End Main Content Header -->
+    {{-- BAGIAN PAGINASI DI ATAS TABEL --}}
+    {{-- Kita bungkus dengan div untuk mengontrol styling dan penempatan --}}
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="fw-normal small">
+            Menampilkan {{ $dataUser->firstItem() }} hingga {{ $dataUser->lastItem() }} dari total {{ $dataUser->total() }}
+            data
+        </div>
+        <div class="d-flex align-items-center">
+            {{ $dataUser->links('pagination::bootstrap-5') }}
+        </div>
+    </div>
+    {{-- END PAGINASI ATAS --}}
+
+    {{-- Tabel Data User --}}
+    <div class="card card-body border-0 shadow table-wrapper table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="border-gray-200">NAMA</th>
+                    <th class="border-gray-200">EMAIL</th>
+                    <th class="border-gray-200">TELEPON</th>
+                    <th class="border-gray-200">AKSI</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if ($dataUser->count() > 0)
+                    @foreach ($dataUser as $user)
+                        <tr>
+                            <td>
+                                <span class="fw-normal">{{ $user->name }}</span>
+                            </td>
+                            <td><span class="fw-normal">{{ $user->email }}</span></td>
+                            {{-- Ganti 'telepon' jika nama kolom di DB berbeda --}}
+                            <td><span class="fw-normal">{{ $user->telepon ?? '-' }}</span></td>
+                            <td>
+                                {{-- Tombol Aksi --}}
+                                <div class="btn-group">
+                                    <a href="#" class="btn btn-sm btn-info me-2">Edit</a>
+                                    <form action="#" method="POST"
+                                        onsubmit="return confirm('Yakin ingin menghapus user ini?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
+                    <tr>
+                        <td colspan="4" class="text-center">Tidak ada data</td>
+                    </tr>
+                @endif
+            </tbody>
+        </table>
+
+        {{-- Footer Tabel & Paginasi (Bagian ini kini hanya berisi Copyright) --}}
+        <div
+            class="card-footer px-3 border-0 d-flex flex-lg-row flex-column flex-wrap flex-xl-nowrap align-items-center justify-content-between">
+
+            {{-- CATATAN: Paginasi lama dihapus dari sini --}}
+
+            {{-- Teks Copyright/Footer --}}
+            <div class="fw-normal small">
+                © 2019-2025 Aplikasi Pelanggan
+            </div>
+            <div class="text-end">
+                Hubungi Admin
+            </div>
+        </div>
+
+    </div>
+
+
 @endsection
