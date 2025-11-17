@@ -8,7 +8,7 @@
     <meta name="description" content="Volt Pro Bootstrap 5 Admin Dashboard Template">
 
     <!-- Start CSS Links (Dipindahkan dari index.blade.php) -->
-    @include('layouts.admin.css');
+    @include('layouts.admin.css')
     <!-- End CSS Links -->
 
     @stack('css') {{-- Untuk CSS tambahan per halaman --}}
@@ -18,14 +18,14 @@
 <body>
 
     <!-- Bagian 1: Sidebar -->
-    @include('layouts.admin.sidebar');
+    @include('layouts.admin.sidebar')
     <!-- End Sidebar -->
 
 
     <main class="content">
 
         <!-- Bagian 2: Navbar / Header Atas -->
-        @include('layouts.admin.header');
+        @include('layouts.admin.header')
         <!-- End Navbar -->
 
 
@@ -124,7 +124,7 @@
 
     <!-- Start Javascript -->
     <!-- Sweet Alerts 2 -->
-    @include('layouts.admin.js');
+    @include('layouts.admin.js')
     <!-- End Javascript -->
 
 </body>

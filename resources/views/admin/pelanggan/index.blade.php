@@ -20,17 +20,64 @@
             </ol>
         </nav>
 
-        {{-- Page Title and Action Button --}}
+        {{-- Page Title --}}
         <div class="d-flex justify-content-between w-100 flex-wrap">
             <div class="mb-3 mb-lg-0">
                 <h1 class="h4">Data Pelanggan</h1>
                 <p class="mb-0">List data seluruh pelanggan.</p>
             </div>
-            <div>
-                <a href="{{ route('pelanggan.create') }}" class="btn btn-primary">
+
+            {{-- FILTER + SEARCH + BUTTON --}}
+            <div class="d-flex align-items-center">
+
+                {{-- FORM FILTER + SEARCH --}}
+                <form action="{{ route('pelanggan.index') }}" method="GET" class="d-flex me-2">
+
+                    {{-- FILTER GENDER --}}
+                    <select name="gender" class="form-select form-select-sm me-2" onchange="this.form.submit()">
+                        <option value="">All</option>
+                        <option value="Male" {{ request('gender') == 'Male' ? 'selected' : '' }}>Male</option>
+                        <option value="Female" {{ request('gender') == 'Female' ? 'selected' : '' }}>Female</option>
+                    </select>
+
+                    {{-- SEARCH --}}
+                    <div class="input-group">
+
+                        <input type="text" name="search" class="form-control form-control-sm" placeholder="Search..."
+                            value="{{ request('search') }}">
+
+                        <button type="submit" class="input-group-text">
+                            <svg class="icon icon-xxs" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+
+                        {{-- CLEAR SEARCH --}}
+                        @if (request('search'))
+                            <a href="{{ request()->fullUrlWithQuery(['search' => null]) }}"
+                                class="btn btn-outline-secondary btn-sm ms-2" id="clear-search">
+                                Clear
+                            </a>
+                        @endif
+
+                    </div>
+
+                </form>
+
+                {{-- BUTTON TAMBAH --}}
+                <a href="{{ route('pelanggan.create') }}" class="btn btn-primary btn-sm">
                     <i class="fas fa-plus me-1"></i> Tambah Pelanggan
                 </a>
+
             </div>
+        </div>
+
+        {{-- Pagination --}}
+        <div class="mt-3">
+            {{ $dataPelanggan->links('pagination::bootstrap-5') }}
         </div>
     </div>
     <!-- End Main Content Header -->

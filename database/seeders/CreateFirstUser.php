@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Faker\Factory as Faker;
 
 class CreateFirstUser extends Seeder
 {
@@ -14,9 +14,15 @@ class CreateFirstUser extends Seeder
      */
     public function run(): void
     {
-       $data['name']     = 'nabila';
-        $data['email']    = 'nabila@gmail.com';
-        $data['password'] = Hash::make('nabila123');
-        User::create($data);
+        $faker = Faker::create();
+
+        // Generate 1000 user
+        for ($i = 1; $i <= 1000; $i++) {
+            User::create([
+                'name'     => $faker->name(),
+                'email'    => $faker->unique()->safeEmail(),
+                'password' => Hash::make('password123'),
+            ]);
+        }
     }
 }
