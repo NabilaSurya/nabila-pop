@@ -25,7 +25,7 @@
             {{-- Kolom untuk Search Input --}}
             <div class="col-md-4 col-sm-6 mb-2">
                 <div class="input-group">
-                    <input type="text" name="search" class="form-control" placeholder="Cari Nama atau Email..."
+                    <input type="text" name="search" class="form-control" placeholder="Cari Nama..."
                         value="{{ request('search') }}">
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-search"></i> Cari
