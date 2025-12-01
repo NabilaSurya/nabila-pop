@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\User;
@@ -11,36 +10,10 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request) // 👈 1. Terima objek Request
+    public function index()
     {
-        // Memulai query builder untuk Model User
-        $query = User::query();
-
-        // 2. IMPLEMENTASI FILTER (ROLE)
-        // Asumsi: Kolom 'role' ada di tabel users
-        if ($request->filled('role')) {
-            $query->where('role', $request->role);
-        }
-
-        // 3. IMPLEMENTASI PENCARIAN (SEARCH)
-        if ($request->filled('search')) {
-            $searchTerm = '%' . $request->search . '%';
-
-            // Mencari di kolom 'name' atau 'email'
-            $query->where(function ($q) use ($searchTerm) {
-                $q->where('name', 'like', $searchTerm)
-                    ->orWhere('email', 'like', $searchTerm);
-                // Jika ada kolom 'telepon'
-                // ->orWhere('telepon', 'like', $searchTerm);
-            });
-        }
-
-        // 4. PAGINATION
-        $dataUser = $query->paginate(10)->withQueryString(); // Gunakan withQueryString() untuk mempertahankan filter/search
-
-        $data['dataUser'] = $dataUser;
-
-        return view('admin.user.index', $data);
+        $users = User::orderBy('id', 'desc')->paginate(10);
+        return view('admin.user.index', compact('users'));
     }
 
     /**
@@ -56,27 +29,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // 5. VALIDASI (Sangat direkomendasikan)
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed', // Gunakan 'confirmed' jika ada input password_confirmation
-            // Tambahkan validasi untuk 'role' dan 'telepon' jika ada di form:
-            // 'role' => 'nullable|in:admin,staff,user',
-            // 'telepon' => 'nullable|string|max:20',
+        $data = $request->validate([
+            'name'     => 'required|string|max:255',
+            'email'    => 'required|email|unique:users,email',
+            'password' => 'required|string|min:8|confirmed',
+            'role'     => 'required|string|max:50',
         ]);
 
-        // Mengambil semua input kecuali token dan konfirmasi password
-        $data = $request->except('_token', 'password_confirmation', 'password_konfirmation');
-
-        $data['password'] = Hash::make($request->password);
-
-        // Asumsi Anda menggunakan kolom 'role' dan 'telepon' di form dan tabel Anda
-        // Jika tidak ada di form, hapus baris ini
+        $data['password'] = Hash::make($data['password']);
 
         User::create($data);
 
-        return redirect()->route('user.index')->with('success', 'User berhasil ditambahkan!');
+        return redirect()->route('user.index')
+            ->with('success', 'User berhasil dibuat.');
     }
 
     /**
@@ -92,7 +57,8 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
@@ -100,7 +66,23 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        // P2: password wajib diisi saat edit
+        $data = $request->validate([
+            'name'     => 'required|string|max:255',
+            'email'    => 'required|email|unique:users,email,' . $user->id,
+            'password' => 'required|string|min:8|confirmed',
+            'role'     => 'required|string|max:50',
+
+        ]);
+
+        $data['password'] = Hash::make($data['password']);
+
+        $user->update($data);
+
+        return redirect()->route('user.index')
+            ->with('success', 'User berhasil diupdate.');
     }
 
     /**
@@ -108,6 +90,10 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('user.index')
+            ->with('success', 'User berhasil dihapus.');
     }
 }

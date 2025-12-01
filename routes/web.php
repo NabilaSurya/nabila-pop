@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AuthController;
+
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\UserController;
@@ -13,7 +15,6 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\DashboardController;
 
 use App\Http\Controllers\MahasiswaController;
-
 use App\Http\Controllers\PelangganController;
 
 Route::get('/', function () {
@@ -42,7 +43,8 @@ Route::get('/home', [HomeController::class, 'index']);
 Route::get('/diriku', [PegawaiController::class, 'index']);
 
 Route::post('question/store', [QuestionController::class, 'store'])
-    ->name('question.store');
+    ->name('question.store')
+    ->middleware('checkislogin');
 
 Route::get('dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
@@ -50,3 +52,7 @@ Route::get('dashboard', [DashboardController::class, 'index'])
 Route::resource('pelanggan', PelangganController::class)->names('pelanggan');
 
 Route::resource('user', UserController::class);
+
+Route::get('auth', [AuthController::class, 'index'])->name('auth');
+Route::get('auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
+Route::post('auth/login', [AuthController::class, 'login'])->name('auth.login');

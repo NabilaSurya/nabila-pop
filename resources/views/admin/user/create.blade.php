@@ -21,7 +21,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- Primary Meta Tags -->
-    <title>Volt Premium Bootstrap Dashboard - Forms</title>
+    <title>Forms</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="title" content="Volt Premium Bootstrap Dashboard - Forms">
     <meta name="author" content="Themesberg">
@@ -50,25 +50,26 @@
         content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/volt-pro-bootstrap-5-dashboard/volt-pro-preview.jpg">
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets-admin') }}/img/favicon/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="120x120"
+        href="{{ asset('assets-admin/assets/img/favicon/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32"
-        href="{{ asset('assets-admin') }}/img/favicon/favicon-32x32.png">
+        href="{{ asset('assets-admin/assets/img/favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16"
-        href="{{ asset('assets-admin') }}/img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="{{ asset('assets-admin') }}/img/favicon/site.webmanifest">
-    <link rel="mask-icon" href="{{ asset('assets-admin') }}/img/favicon/safari-pinned-tab.svg" color="#ffffff">
+        href="{{ asset('assets-admin/assets/img/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('assets-admin/assets/img/favicon/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ asset('assets-admin/assets/img/favicon/safari-pinned-tab.svg') }}" color="#ffffff">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 
     <!-- Sweet Alert -->
-    <link type="text/css" href="{{ asset('assets-admin') }}/vendor/sweetalert2/dist/sweetalert2.min.css"
+    <link type="text/css" href="{{ asset('assets-admin/vendor/sweetalert2/dist/sweetalert2.min.css') }}"
         rel="stylesheet">
 
     <!-- Notyf -->
-    <link type="text/css" href="{{ asset('assets-admin') }}/vendor/notyf/notyf.min.css" rel="stylesheet">
+    <link type="text/css" href="{{ asset('assets-admin/vendor/notyf/notyf.min.css') }}" rel="stylesheet">
 
     <!-- Volt CSS -->
-    <link type="text/css" href="{{ asset('assets-admin') }}/css/volt.css" rel="stylesheet">
+    <link type="text/css" href="{{ asset('assets-admin/css/volt.css') }}" rel="stylesheet">
 
     <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
 
@@ -80,9 +81,10 @@
 
 
     <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-lg-none">
-        <a class="navbar-brand me-lg-5" href="../../index.html">
-            <img class="navbar-brand-dark" src="{{ asset('assets-admin') }}/img/brand/light.svg" alt="Volt logo" /> <img
-                class="navbar-brand-light" src="{{ asset('assets-admin') }}/img/brand/dark.svg" alt="Volt logo" />
+        <a class="navbar-brand me-lg-5" href="{{ asset('assets-admin/index.html') }}">
+            <img class="navbar-brand-dark" src="{{ asset('assets-admin/assets/img/brand/light.svg') }}"
+                alt="Volt logo" /> <img class="navbar-brand-light"
+                src="{{ asset('assets-admin/assets/img/brand/dark.svg') }}" alt="Volt logo" />
         </a>
         <div class="d-flex align-items-center">
             <button class="navbar-toggler d-lg-none collapsed" type="button" data-bs-toggle="collapse"
@@ -99,12 +101,12 @@
                 class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
                 <div class="d-flex align-items-center">
                     <div class="avatar-lg me-4">
-                        <img src="../../assets/img/team/profile-picture-3.jpg"
+                        <img src="{{ asset('assets-admin/assets/img/team/profile-picture-3.jpg') }}"
                             class="card-img-top rounded-circle border-white" alt="Bonnie Green">
                     </div>
                     <div class="d-block">
                         <h2 class="h5 mb-3">Hi, Jane</h2>
-                        <a href="../../pages/examples/sign-in.html"
+                        <a href="{{ asset('assets-admin/pages/examples/sign-in.html') }}"
                             class="btn btn-secondary btn-sm d-inline-flex align-items-center">
                             <svg class="icon icon-xxs me-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -128,18 +130,34 @@
                     </a>
                 </div>
             </div>
+
+            <li class="nav-item  active ">
+                <a href="" class="nav-link">
+                    <span class="sidebar-icon">
+                        <svg class="icon icon-xs me-2" data-slot="icon" fill="none" stroke-width="1.5"
+                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z">
+                            </path>
+                        </svg>
+                    </span>
+                    <span class="sidebar-text">Pelanggan</span>
+                </a>
+            </li>
+
             <ul class="nav flex-column pt-3 pt-md-0">
                 <li class="nav-item">
-                    <a href="../../index.html" class="nav-link d-flex align-items-center">
+                    <a href="{{ asset('assets-admin/index.html') }}" class="nav-link d-flex align-items-center">
                         <span class="sidebar-icon">
-                            <img src="../../assets/img/brand/light.svg" height="20" width="20"
-                                alt="Volt Logo">
+                            <img src="{{ asset('assets-admin/assets/img/brand/light.svg') }}" height="20"
+                                width="20" alt="Volt Logo">
                         </span>
                         <span class="mt-1 ms-1 sidebar-text">Volt Overview</span>
                     </a>
                 </li>
                 <li class="nav-item  active ">
-                    <a href="../../pages/dashboard/dashboard.html" class="nav-link">
+                    <a href="{{ asset('assets-admin/pages/dashboard/dashboard.html') }}" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -150,16 +168,17 @@
                         <span class="sidebar-text">Dashboard</span>
                     </a>
                 </li>
+
                 <li class="nav-item">
-                    <a href="https://demo.themesberg.com/volt-pro/pages/kanban.html" target="_blank"
-                        class="nav-link d-flex justify-content-between">
+                    <span class="nav-link  collapsed  d-flex justify-content-between align-items-center"
+                        data-bs-toggle="collapse" data-bs-target="#submenu-app">
                         <span>
                             <span class="sidebar-icon">
                                 <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
-                                    </path>
+                                    <path fill-rule="evenodd"
+                                        d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z"
+                                        clip-rule="evenodd"></path>
                                 </svg>
                             </span>
                             <span class="sidebar-text">Tables</span>
@@ -172,51 +191,19 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                         </span>
-                        </span>
-                        <div class="multi-level collapse " role="list" id="submenu-pages" aria-expanded="false">
-                            <ul class="flex-column nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="../../pages/examples/sign-in.html">
-                                        <span class="sidebar-text">Sign In</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="../../pages/examples/sign-up.html">
-                                        <span class="sidebar-text">Sign Up</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="../../pages/examples/forgot-password.html">
-                                        <span class="sidebar-text">Forgot password</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="../../pages/examples/reset-password.html">
-                                        <span class="sidebar-text">Reset password</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="../../pages/examples/lock.html">
-                                        <span class="sidebar-text">Lock</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="../../pages/examples/404.html">
-                                        <span class="sidebar-text">404 Not Found</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="../../pages/examples/500.html">
-                                        <span class="sidebar-text">500 Not Found</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                    </span>
+                    <div class="multi-level collapse " role="list" id="submenu-app" aria-expanded="false">
+                        <ul class="flex-column nav">
+                            <li class="nav-item ">
+                                <a class="nav-link"
+                                    href="{{ asset('assets-admin/pages/tables/bootstrap-tables.html') }}">
+                                    <span class="sidebar-text">Bootstrap Tables</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <span class="nav-link  collapsed  d-flex justify-content-between align-items-center"
-                        data-bs-toggle="collapse" data-bs-target="#submenu-components">
-                        <span>
+
                 <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
                 <li class="nav-item">
                     <a href="https://themesberg.com/docs/volt-bootstrap-5-dashboard/getting-started/quick-start/"
@@ -233,8 +220,9 @@
                                 class="badge badge-sm bg-secondary ms-1 text-gray-800">v1.4</span></span>
                     </a>
                 </li>
+
                 <li class="nav-item">
-                    <a href="../../pages/upgrade-to-pro.html"
+                    <a href="{{ asset('assets-admin/pages/upgrade-to-pro.html') }}"
                         class="btn btn-secondary d-flex align-items-center justify-content-center btn-upgrade-pro">
                         <span class="sidebar-icon d-inline-flex align-items-center justify-content-center">
                             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -247,10 +235,13 @@
                         <span>Upgrade to Pro</span>
                     </a>
                 </li>
+
             </ul>
         </div>
     </nav>
+
     <main class="content">
+
         <nav class="navbar navbar-top navbar-expand navbar-dashboard navbar-dark ps-0 pe-2 pb-0">
             <div class="container-fluid px-0">
                 <div class="d-flex justify-content-between w-100" id="navbarSupportedContent">
@@ -295,7 +286,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="{{ asset('assets-admin') }}/img/team/profile-picture-1.jpg"
+                                                    src="{{ asset('assets-admin/assets/img/team/profile-picture-1.jpg') }}"
                                                     class="avatar-md rounded">
                                             </div>
                                             <div class="col ps-0 ms-2">
@@ -304,12 +295,10 @@
                                                         <h4 class="h6 mb-0 text-small">Jose Leos</h4>
                                                     </div>
                                                     <div class="text-end">
-                                                        <small class="text-danger">a few moments
-                                                            ago</small>
+                                                        <small class="text-danger">a few moments ago</small>
                                                     </div>
                                                 </div>
-                                                <p class="font-small mt-1 mb-0">Added you to an event
-                                                    "Project
+                                                <p class="font-small mt-1 mb-0">Added you to an event "Project
                                                     stand-up" tomorrow at 12:30 AM.</p>
                                             </div>
                                         </div>
@@ -319,7 +308,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="{{ asset('assets-admin') }}/img/team/profile-picture-2.jpg"
+                                                    src="{{ asset('assets-admin/assets/img/team/profile-picture-2.jpg') }}"
                                                     class="avatar-md rounded">
                                             </div>
                                             <div class="col ps-0 ms-2">
@@ -331,8 +320,7 @@
                                                         <small class="text-danger">2 hrs ago</small>
                                                     </div>
                                                 </div>
-                                                <p class="font-small mt-1 mb-0">You've been assigned a task
-                                                    for
+                                                <p class="font-small mt-1 mb-0">You've been assigned a task for
                                                     "Awesome new project".</p>
                                             </div>
                                         </div>
@@ -342,7 +330,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="{{ asset('assets-admin') }}/img/team/profile-picture-3.jpg"
+                                                    src="{{ asset('assets-admin/assets/img/team/profile-picture-3.jpg') }}"
                                                     class="avatar-md rounded">
                                             </div>
                                             <div class="col ps-0 m-2">
@@ -354,8 +342,7 @@
                                                         <small>5 hrs ago</small>
                                                     </div>
                                                 </div>
-                                                <p class="font-small mt-1 mb-0">Tagged you in a document
-                                                    called
+                                                <p class="font-small mt-1 mb-0">Tagged you in a document called
                                                     "Financial plans",</p>
                                             </div>
                                         </div>
@@ -365,7 +352,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="{{ asset('assets-admin') }}/img/team/profile-picture-4.jpg"
+                                                    src="{{ asset('assets-admin/assets/img/team/profile-picture-4.jpg') }}"
                                                     class="avatar-md rounded">
                                             </div>
                                             <div class="col ps-0 ms-2">
@@ -377,8 +364,7 @@
                                                         <small>1 d ago</small>
                                                     </div>
                                                 </div>
-                                                <p class="font-small mt-1 mb-0">New message: "Hey, what's
-                                                    up? All set
+                                                <p class="font-small mt-1 mb-0">New message: "Hey, what's up? All set
                                                     for the presentation?"</p>
                                             </div>
                                         </div>
@@ -388,7 +374,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="{{ asset('assets-admin') }}/img/team/profile-picture-5.jpg"
+                                                    src="{{ asset('assets-admin/assets/img/team/profile-picture-5.jpg') }}"
                                                     class="avatar-md rounded">
                                             </div>
                                             <div class="col ps-0 ms-2">
@@ -400,8 +386,7 @@
                                                         <small>2 hrs ago</small>
                                                     </div>
                                                 </div>
-                                                <p class="font-small mt-1 mb-0">New message: "We need to
-                                                    improve the
+                                                <p class="font-small mt-1 mb-0">New message: "We need to improve the
                                                     UI/UX for the landing page."</p>
                                             </div>
                                         </div>
@@ -424,10 +409,9 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="media d-flex align-items-center">
                                     <img class="avatar rounded-circle" alt="Image placeholder"
-                                        src="{{ asset('assets-admin') }}/img/team/profile-picture-3.jpg">
+                                        src="{{ asset('assets-admin/assets/img/team/profile-picture-3.jpg') }}">
                                     <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                                        <span class="mb-0 font-small fw-bold text-gray-900">Bonnie
-                                            Green</span>
+                                        <span class="mb-0 font-small fw-bold text-gray-900">Bonnie Green</span>
                                     </div>
                                 </div>
                             </a>
@@ -498,115 +482,81 @@
                             </svg>
                         </a>
                     </li>
-                    <li class="breadcrumb-item"><a href="#">User</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pelanggan</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Tambah Pelanggan</li>
                 </ol>
             </nav>
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0">
-                    <h1 class="h4">Tambah User</h1>
-                    <p class="mb-0">Form untuk menambahkan data user baru.</p>
+                    <h1 class="h4">Tambah Pelanggan</h1>
+                    <p class="mb-0">Form untuk menambahkan data pelangan baru</p>
                 </div>
                 <div>
-                    <a href="{{ route('user.index') }}" class="btn btn-primary">
-                        <i class="far fa-question-circle me-1"></i> Kembali
-                    </a>
+                    <a href="https://themesberg.com/docs/volt-bootstrap-5-dashboard/components/forms/"
+                        class="btn btn-primary"><i class="far fa-question-circle me-1"></i> Kembali </a>
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="col-12 mb-4">
+                <h3>Tambah User</h3>
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul class="mb-0">
+                            @foreach ($errors->all() as $err)
+                                <li>{{ $err }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="card border-0 shadow components-section">
                     <div class="card-body">
-                        @if (session('success'))
-                            <div class="aler alert-info">
-                                {!! session('success') !!}
-                            </div>
-                        @endif
-                        <form method="POST" action="{{ route('user.store') }}">
+                        <form action="{{ route('user.store') }}" method="POST">
                             @csrf
 
-                            <div class="row mb-4">
-                                <div class="col-lg-6 col-md-6">
-
-                                    <div class="mb-3">
-                                        <label for="name">Nama Lengkap</label>
-                                        <input type="text" class="form-control" id="name" name="name"
-                                            value="{{ old('name') }}" required>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="email">Email</label>
-                                        <input type="email" class="form-control" id="email" name="email"
-                                            value="{{ old('email') }}" required>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="password">Password</label>
-                                        <input type="password" class="form-control" id="password" name="password"
-                                            value="{{ old('password') }}"  required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="password_konfirmatin">Password Konfirmation</label>
-                                        <input type="password_konfirmatin" class="form-control" id="password" name="password_konfirmatin"
-                                            value="{{ old('password_konfirmatin') }}"  required>
-                                    </div>
-                                </div>
+                            <div class="mb-3">
+                                <label class="form-label">Nama</label>
+                                <input type="text" name="name" value="{{ old('name') }}"
+                                    class="form-control" required>
                             </div>
 
-                            <div class="row">
-                                <div class="col-12 text-end">
-                                    <button type="submit" class="btn btn-sm btn-primary me-2">Simpan</button>
-                                    <a href="{{ route('user.index') }}" class="btn btn-sm btn-secondary">Batal</a>
-                                </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" name="email" value="{{ old('email') }}"
+                                    class="form-control" required>
                             </div>
+                            <div class="mb-3">
+                                <label class="form-label">Role</label>
+                                <select name="role" class="form-select" required>
+                                    <option value="">Pilih Role</option>
+                                    <option value="SuperAdmin">SuperAdmin</option>
+                                    <option value="Pelanggan">Pelanggan</option>
+                                    <option value="Mitra">Mitra</option>
+                                </select>
+                                <small
+                                    class="text-muted">Pilih role sesuai dengan jenis user yang akan ditambahkan.
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Password</label>
+                                        <input type="password" name="password" class="form-control" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label">Konfirmasi Password</label>
+                                        <input type="password" name="password_confirmation" class="form-control"
+                                            required>
+                                    </div>
+
+                                    <button class="btn btn-dark" type="submit">Simpan</button>
+                                    <a href="{{ route('user.index') }}" class="btn btn-secondary">Batal</a>
                         </form>
                     </div>
                 </div>
-                </form>
             </div>
         </div>
-        </form>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="card-body bg-gray-800 text-white pt-4">
-            <button type="button" class="btn-close theme-settings-close" aria-label="Close"
-                data-bs-toggle="collapse" href="#theme-settings" role="button" aria-expanded="false"
-                aria-controls="theme-settings"></button>
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <p class="m-0 mb-1 me-4 fs-7">Open source <span role="img" aria-label="gratitude">💛</span>
-                </p>
-                <a class="github-button" href="https://github.com/themesberg/volt-bootstrap-5-dashboard"
-                    data-color-scheme="no-preference: dark; light: light; dark: light;" data-icon="octicon-star"
-                    data-size="large" data-show-count="true"
-                    aria-label="Star themesberg/volt-bootstrap-5-dashboard on GitHub">Star</a>
-            </div>
-            <a href="https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard" target="_blank"
-                class="btn btn-secondary d-inline-flex align-items-center justify-content-center mb-3 w-100">
-                Download
-                <svg class="icon icon-xs ms-2" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M2 9.5A3.5 3.5 0 005.5 13H9v2.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 15.586V13h2.5a4.5 4.5 0 10-.616-8.958 4.002 4.002 0 10-7.753 1.977A3.5 3.5 0 002 9.5zm9 3.5H9V8a1 1 0 012 0v5z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </a>
-            <p class="fs-7 text-gray-300 text-center">Available in the following technologies:</p>
-            <div class="d-flex justify-content-center">
-                <a class="me-3" href="https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard"
-                    target="_blank">
-                    <img src="{{ asset('assets-admin') }}/img/technologies/bootstrap-5-logo.svg"
-                        class="image image-xs">
-                </a>
-                <a href="https://demo.themesberg.com/volt-react-dashboard/#/" target="_blank">
-                    <img src="{{ asset('assets-admin') }}/img/technologies/react-logo.svg" class="image image-xs">
-                </a>
-            </div>
-        </div>
-        </div>
+
 
         <div class="card theme-settings bg-gray-800 theme-settings-expand" id="theme-settings-expand">
             <div class="card-body bg-gray-800 text-white rounded-top p-3 py-2">
@@ -651,45 +601,45 @@
     </main>
 
     <!-- Core -->
-    <script src="{{ asset('assets-admin') }}/vendor/@popperjs/core/dist/umd/popper.min.js"></script>
-    <script src="{{ asset('assets-admin') }}/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{{ asset('assets-admin/vendor/@popperjs/core/dist/umd/popper.min.js') }}"></script>
+    <script src="assets-admin/vendor/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
     <!-- Vendor JS -->
-    <script src="{{ asset('assets-admin') }}/vendor/onscreen/dist/on-screen.umd.min.js"></script>
+    <script src="{{ asset('assets-admin/vendor/onscreen/dist/on-screen.umd.min.js') }}"></script>
 
     <!-- Slider -->
-    <script src="{{ asset('assets-admin') }}/vendor/nouislider/distribute/nouislider.min.js"></script>
+    <script src="{{ asset('assets-admin/vendor/nouislider/dist/nouislider.min.js') }}"></script>
 
     <!-- Smooth scroll -->
-    <script src="{{ asset('assets-admin') }}/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="{{ asset('assets-admin/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
 
     <!-- Charts -->
-    <script src="{{ asset('assets-admin') }}/vendor/chartist/dist/chartist.min.js"></script>
-    <script src="{{ asset('assets-admin') }}/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="{{ asset('assets-admin/vendor/chartist/dist/chartist.min.js') }}"></script>
+    <script src="{{ asset('assets-admin/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js') }}"></script>
 
     <!-- Datepicker -->
-    <script src="{{ asset('assets-admin') }}/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
+
 
     <!-- Sweet Alerts 2 -->
-    <script src="{{ asset('assets-admin') }}/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="{{ asset('assets-admin/vendor/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
 
     <!-- Moment JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js')}}"></script>
 
     <!-- Vanilla JS Datepicker -->
-    <script src="{{ asset('assets-admin') }}/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
+    <script src="{{ asset('assets-admin/vendor/vanillajs-datepicker/dist/js/datepicker.min.js') }}"></script>
 
     <!-- Notyf -->
-    <script src="{{ asset('assets-admin') }}/vendor/notyf/notyf.min.js"></script>
+    <script src="{{ asset('assets-admin/vendor/notyf/notyf.min.js') }}"></script>
 
     <!-- Simplebar -->
-    <script src="{{ asset('assets-admin') }}/vendor/simplebar/dist/simplebar.min.js"></script>
+    <script src="{{ asset('assets-admin/vendor/simplebar/dist/simplebar.min.js') }}"></script>
 
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <!-- Volt JS -->
-    <script src="{{ asset('assets-admin') }}/js/volt.js"></script>
+    <script src="{{ asset('assets-admin/js/volt.js') }}"></script>
 
 
 </body>
